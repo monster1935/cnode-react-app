@@ -25,13 +25,28 @@
 
   .topic-list {
     margin: 0;
+    .info-nodata {
+      display: flex;
+      flex-flow:column;
+      justify-content: center;
+      align-items: center;
+      height: 800px;
+      padding: 10px;
+    }
     .cell {
       background: #fff;
       position: relative;
       padding: 10px;
       font-size: 14px;
       border-top: 1px solid #f0f0f0;
+      cursor: pointer;
       overflow: hidden;
+      &:hover {
+        background: #f5f5f5;
+      }
+      &:first-child {
+        border-top: none;
+      }
       img {
         max-width: 100%;
         vertical-align: middle;

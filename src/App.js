@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import './App.less';
 import Footer from './components/footer';
 import Header from './components/header';
 import Sidebar from './components/sidebar';
-import Home from './components/home';
+import './App.less';
+import Routes from './routes';
 
 class App extends Component {
 
@@ -27,7 +27,7 @@ class App extends Component {
             <Sidebar />
           </div>
           <div className="content">
-            <Home />
+            <Routes />
           </div>
         </div>
         <div className="App-footer">

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
 
@@ -10,11 +11,16 @@ class Home extends Component {
     super(props);
     this.state = {
       postList: [],
+      tagType: '',
     };
   }
 
   componentWillMount() {
-    this.getPostData().then(res => {
+    const type = this.props.match.params.type;
+    this.setState({
+      tagType: type || 'all',
+    });
+    this.getPostData(type).then(res => {
       if (res.status === 200) {
         this.setState({
           postList: res.data.data,
@@ -27,9 +33,36 @@ class Home extends Component {
     });
   }
 
+  componentDidMount() {
 
-  getPostData() {
-    return axios.get('https://cnodejs.org/api/v1/topics');
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const type = nextProps.match.params.type;
+    this.setState({
+      tagType: type || 'all',
+    });
+    if (this.state.tagType !== type) {
+      this.getPostData(type).then(res => {
+        if (res.status === 200) {
+          this.setState({
+            postList: res.data.data,
+          });
+        } else {
+          console.error(res.statusText);
+        }
+      }).catch(e => {
+        console.warn(e);
+      });
+    }
+  }
+
+  getPostData(type) {
+    return axios.get('https://cnodejs.org/api/v1/topics',{
+      params: {
+        tab: type,
+      }
+    });
   }
 
   tabTypes(post) {
@@ -39,6 +72,7 @@ class Home extends Component {
       'share': '分享',
       'good': '精华',
       'ask': '问答',
+      'job': '招聘',
     };
     if (post.top) {
       return map['top'];
@@ -49,9 +83,29 @@ class Home extends Component {
     }
   }
 
+  getRouteList() {
+    const routeList = [
+      { type: 'all', path: '/', text: '全部' },
+      { type: 'good', path: '/tag/good', text: '精华' },
+      { type: 'share', path: '/tag/share', text: '分享' },
+      { type: 'ask', path: '/tag/ask', text: '问答' },
+      { type: 'job', path: '/tag/job', text: '招聘' },
+      { type: 'test', path: '/tag/test', text: '客户端测试' },
+    ];
+    return routeList.map((route) => (
+      <Link
+        to={route.path}
+        key={route.path}
+        className={this.state.tagType === route.type ? 'topic-tab current-tab' : 'topic-tab'}
+      >
+        {route.text}
+      </Link>
+    ));
+  }
+
   render () {
     const contentHtml = () => {
-      return this.state.postList.map(post => (
+      return this.state.postList.map((post,index) => (
           <div className="cell" key={post.id}>
             <a className="user-avatar pull-left">
               <img
@@ -81,27 +135,30 @@ class Home extends Component {
               >
                 {this.tabTypes(post)}
               </span>
-              <a className="topic-title" title={post.title}>
+              <Link
+                className="topic-title"
+                to={'/topic/'+post.id}
+              >
                 {post.title}
-              </a>
+              </Link>
             </div>
           </div>
         )
       );
     }
+    const infoHtml = () => (
+      <div className="info-nodata">
+        <h3>暂无数据</h3>
+      </div>
+    );
     return (
       <div className="panel">
         <div className="header">
-          <a href="/" className="topic-tab current-tab">全部</a>
-          <a href="/" className="topic-tab">精华</a>
-          <a href="/" className="topic-tab">分享</a>
-          <a href="/" className="topic-tab">问答</a>
-          <a href="/" className="topic-tab">招聘</a>
-          <a href="/" className="topic-tab">客户端测试</a>
+          {this.getRouteList()}
         </div>
         <div className="inner no-padding">
           <div className="topic-list">
-            {contentHtml()}
+            {this.state.postList.length ? contentHtml() : infoHtml()}
           </div>
         </div>
       </div>
