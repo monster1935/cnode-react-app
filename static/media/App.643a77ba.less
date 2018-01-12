@@ -1,0 +1,53 @@
+// Copyright (c) 2018 by monster1935. All Rights Reserved.
+
+@import url('components/header/index.less');
+@import url('components/sidebar/index.less');
+@import url('components/footer/index.less');
+@import url('components/home/index.less');
+
+.App {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  // header
+  .App-header {
+    background: #444;
+  }
+  // content
+  .App-content {
+    flex: 1;
+    width: 90%;
+    max-width: 1400px;
+    min-width: 960px;
+    margin: 15px auto;
+
+    a {
+      text-decoration: none;
+    }
+
+    .sidebar {
+      width: 290px;
+      font-size: 14px;
+      float: right;
+      margin-bottom: 20px;
+    }
+    .content {
+      padding: 0;
+      margin-right: 305px;
+    }
+  }
+
+  // footer
+
+  .App-footer {
+    background: #fff;
+    text-align: center;
+  }
+
+  .pull-left {
+    float: left;
+  }
+  .pull-right {
+    float: right;
+  }
+}
