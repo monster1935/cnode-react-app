@@ -1,3 +1,10 @@
+// Copyright (c) 2018 by monster1935. All Rights Reserved.
+
+@import url('components/header/index.less');
+@import url('components/sidebar/index.less');
+@import url('components/footer/index.less');
+@import url('components/home/index.less');
+
 .App {
   height: 100%;
   display: flex;
@@ -5,43 +12,6 @@
   // header
   .App-header {
     background: #444;
-    .header-wrapper {
-      width: 90%;
-      padding: 5px;
-      font-size: 14px;
-      min-width: 960px;
-      margin: 0 auto;
-      max-width: 1400px;
-      a.brand {
-        display: inline-block;
-        width: 120px;
-        padding: 3px 20px;
-        height: 34px;
-        line-height: 34px;
-        color: #ccc;
-        font-weight: 700;
-      }
-      .nav.pull-right {
-        float: right;
-        margin: 0;
-      }
-      .nav>li {
-        float: left;
-        line-height: 20px;
-        list-style: none;
-        &>a {
-          display: block;
-          text-shadow: none;
-          color: #ccc;
-          float: none;
-          padding: 10px 15px;
-          text-decoration: none;
-          &:hover {
-            color: #fff;
-          }
-        }
-      }
-    }
   }
   // content
   .App-content {
@@ -50,127 +20,20 @@
     max-width: 1400px;
     min-width: 960px;
     margin: 15px auto;
+
+    a {
+      text-decoration: none;
+    }
+
     .sidebar {
       width: 290px;
       font-size: 14px;
       float: right;
-      margin-bottom: 20px
+      margin-bottom: 20px;
     }
     .content {
       padding: 0;
       margin-right: 305px;
-
-      .header {
-        padding: 10px;
-        background-color: #f6f6f6;
-        border-radius: 3px 3px 0 0;
-      }
-
-      .inner.no-padding {
-        padding: 0;
-      }
-      .inner {
-        border-raidus: 0 0 3px 3px;
-        background: #fff;
-        line-height: 2em;
-
-        a {
-          text-decoration: none;
-        }
-
-        .topic-list {
-          margin: 0;
-
-          .cell {
-            background: #fff;
-            position: relative;
-            padding: 10px;
-            font-size: 14px;
-            border-top: 1px solid #f0f0f0;
-            overflow: hidden;
-
-            img {
-              max-width: 100%;
-              vertical-align: middle;
-              border: 0;
-            }
-            // 头像
-            .user-avatar {
-              img {
-                width: 30px;
-                height: 30px;
-                border-radius: 3px;
-              }
-            }
-            // 回复数&点击数
-            .reply-count {
-              width: 70px;
-              display: inline-block;
-              text-align: center;
-              .count-of-replies {
-                color: #9e78c0;
-              }
-              .count-seperator {
-                margin: 0 -3px;
-                font-size: 10px;
-              }
-              .count-of-visits {
-                font-size: 10px;
-                color: #b4b4b4;
-              }
-            }
-
-            // Title
-            .topic-title-wrapper {
-              white-space: nowrap;
-              text-overflow: ellipsis;
-              color: #333;
-
-              .tag {
-                padding: 2px 4px;
-                border-radius: 3px;
-                font-size: 12px;
-                &.put-top {
-                  background: #80bd01;
-                  color: #fff;
-                }
-                &.tab-common {
-                  background-color: #e5e5e5;
-                  color: #999;
-                }
-              }    
-              .topic-title {
-                margin-left: 4px;
-                max-width: 70%;
-                white-space: nowrap;
-                display: inline-block;
-                vertical-align: middle;
-                text-overflow: ellipsis;
-                overflow: hidden;
-                font-size: 16px;
-                line-height: 30px;
-              }
-            }
-
-            // 最后回复时间
-            .last-time {
-              font-size: 11px;
-              display: inline-block;
-              margin-left: 20px;
-              color: #778087;
-              .user-small-avatar {
-                height: 18px;
-                width: 18px;
-                vertical-align: middle;
-                margin-right: .5em;
-                border-radius: 3px;
-              }
-            }
-
-          }
-        }
-
-      }
     }
   }
 
@@ -179,16 +42,6 @@
   .App-footer {
     background: #fff;
     text-align: center;
-    .footer-wrapper {
-      width: 90%;
-      max-width: 1400px;
-      min-width: 960px;
-      margin: 0 auto;
-      color: #ccc;
-      padding: 20px 0;
-      font-size: 13px;
-      line-height: 2em;
-    }
   }
 
   .pull-left {
