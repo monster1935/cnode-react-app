@@ -14,7 +14,6 @@ class Home extends Component {
   }
 
   componentWillMount() {
-    console.log('compoent will mount');
     this.getPostData().then(res => {
       if (res.status === 200) {
         this.setState({
@@ -30,7 +29,6 @@ class Home extends Component {
 
 
   getPostData() {
-    console.log('in getPostData function');
     return axios.get('https://cnodejs.org/api/v1/topics');
   }
 
@@ -78,7 +76,11 @@ class Home extends Component {
               <span className="last-active-time">{moment(post.last_reply_at).fromNow()}</span>
             </a>
             <div className="topic-title-wrapper">
-              <span className={(post.top || post.good) ? 'tag put-top': ' tag tab-common' }>{this.tabTypes(post)}</span>
+              <span
+                className={(post.top || post.good) ? 'tag put-top': ' tag tab-common' }
+              >
+                {this.tabTypes(post)}
+              </span>
               <a className="topic-title" title={post.title}>
                 {post.title}
               </a>
@@ -104,8 +106,6 @@ class Home extends Component {
         </div>
       </div>
     );
-
-
   }
 };
 

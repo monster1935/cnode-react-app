@@ -4,7 +4,10 @@ import React from 'react';
 const Header = () => (
   <div className="header-wrapper">
     <a className="brand">
-      <img src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg" />
+      <img
+        src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg"
+        alt="cnode"
+      />
     </a>
     <ul className="nav pull-right">
       <li><a href="/">首页</a></li>
