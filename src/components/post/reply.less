@@ -1,0 +1,79 @@
+
+.reply {
+  padding: 10px;
+  background: #fff;
+  border-top: 1px solid #f0f0f0;
+  position: relative;
+  font-size: 14px;
+
+  .author-content {
+    .user-avatar {
+      display: inline-block;
+      float: left;
+      img {
+        width: 30px;
+        height: 30px;
+        border-radius: 3px;
+      }
+    }
+
+    .user-info {
+      margin-left: 10px;
+      display: inline-block;
+      a {
+        color: #08c;
+        text-decoration: none;
+      }
+      .reply-author {
+        color: #666;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .reply-time {
+        font-size: 11px;
+        margin-left: 6px;
+      }
+      .reply-by-author {
+        color: #fff;
+        background-color: #6ba44e;
+        padding: 2px;
+        font-size: 12px;
+        margin-left: 4px;
+        display: none;
+        &.display {
+          display: inline-block;
+        }
+      }
+    }
+
+    .user-action {
+      float: right;
+      margin-left: 20px;
+      font-size: 15px;
+      display: none;
+      &.display {
+        display: block;
+      }
+      .iconfont {
+        color: #000;
+        opacity: 0.6;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.4;
+        }
+      }
+
+      .up-count {
+        color: gray;
+      }
+    }
+
+  }
+
+  .reply-content  {
+    padding-left: 50px;
+    color: #333;
+  }
+
+}

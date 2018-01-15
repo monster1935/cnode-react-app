@@ -1,5 +1,15 @@
 // Copyright (c) 2018 by monster1935. All Rights Reserved.
+// 头部导航栏组件
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+const routeList = [
+  { path: '/', label: '首页' },
+  { path: '/getstart', label: '新手入门' },
+  { path: '/api', label: 'API' },
+  { path: '/about', label: '关于' },
+  { path: '/login', label: '登录' },
+];
 
 const Header = () => (
   <div className="header-wrapper">
@@ -10,12 +20,15 @@ const Header = () => (
       />
     </a>
     <ul className="nav pull-right">
-      <li><a href="/">首页</a></li>
-      <li><a href="/">新手入门</a></li>
-      <li><a href="/">API</a></li>
-      <li><a href="/">关于</a></li>
-      <li><a href="/">注册</a></li>
-      <li><a href="/">登录</a></li>
+      {routeList.map(route => {
+        return (
+          <li key={route.path}>
+            <Link to={route.path}>
+              {route.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   </div>
 );

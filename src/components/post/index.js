@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import Reply from './reply.js';
 import './index.less';
 
 class Post extends Component {
@@ -50,25 +51,48 @@ class Post extends Component {
     const author = postInfo&&postInfo.author&&postInfo.author.loginname;
     const tabType = this.getPostType();
     return (
-      <div className="panel" >
-        <div className="topic-header">
-          <span className="topic-title">
-            <span className="topic-tab-type">置顶</span>
-              {this.state.postInfo.title}
-          </span>
-          <div className="topic-title-info">
-            <span>发布于{moment(postInfo.create_at).fromNow()}</span>
-            <span>作者 {author}</span>
-            <span>{postInfo.visit_count} 次浏览</span>
-            <span>最后一次编辑是{moment(postInfo.create_at).fromNow()}</span>
-            <span>来自 {tabType}</span>
+      <div>
+        <div className="panel" >
+          <div className="topic-header">
+            <span className="topic-title">
+              <span className="topic-tab-type">置顶</span>
+                {this.state.postInfo.title}
+            </span>
+            <div className="topic-title-info">
+              <span>发布于{moment(postInfo.create_at).fromNow()}</span>
+              <span>作者 {author}</span>
+              <span>{postInfo.visit_count} 次浏览</span>
+              <span>最后一次编辑是{moment(postInfo.create_at).fromNow()}</span>
+              <span>来自 {tabType}</span>
+            </div>
+          </div>
+          <div
+            className="topic-content"
+            dangerouslySetInnerHTML={{__html: this.state.postInfo.content}}
+          />
+        </div>
+        <div className="panel">
+          <div className="header">
+            <span className="col-code">{postInfo && postInfo.reply_count} 回复</span>
+          </div>
+          <div className="reply-wrapper">
+            {
+              postInfo && postInfo.replies && postInfo.replies.map((el,index) => {
+                return (
+                  <Reply
+                    {...el}
+                    key={el.id}
+                    loginname={postInfo && postInfo.author.loginname}
+                    index={index+1}
+                  >
+                  </Reply>
+                );
+              })
+            }
           </div>
         </div>
-        <div
-          className="topic-content"
-          dangerouslySetInnerHTML={{__html: this.state.postInfo.content}}
-        />
       </div>
+
     )
   }
 };

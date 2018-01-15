@@ -7,12 +7,18 @@ import {
 } from 'react-router-dom';
 import Home from '../components/home';
 import Post from '../components/post';
+import Guides from '../components/guides';
+import API from '../components/api';
+import About from '../components/about';
 
 class ChildRoute extends Component {
   render() {
     return (
       <Switch>
         <Route exact path="/" component={Home}></Route>
+        <Route exact path="/getstart" component={Guides} />
+        <Route exact path="/api" component={API} />
+        <Route exact path="/about" component={About} />
         <Route exact path="/tag/:type" component={Home}></Route>
         <Route exact path="/tag/:type" component={Home}></Route>
         <Route exact path="/tag/:type" component={Home}></Route>
