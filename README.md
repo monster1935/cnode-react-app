@@ -25,8 +25,27 @@
 - [x] 基于文章类型的前端路由添加
 - [x] 基于文章详情的前端路由添加
 - [x] 文章详情页的展示
-- [ ] 文章评论的显示
+- [x] 文章评论的显示
 - [ ] 基于 token 的登录
+- [ ] 基于现有api可完成的其他交互
+
+## npm scripts
+
+```bash
+## 本地调试
+yarn start
+
+## 打包
+
+yarn run build
+
+## 发布至github repository gh-pages分支,使用该功能需要yarn add gh-pages,
+## 并在package.json中配置网站的路径，如该示例中的homepage字段
+
+yarn run deploy
+
+```
+
 
 ## 写在最后
 
