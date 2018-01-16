@@ -3,7 +3,7 @@
 > 一个学习  reactjs 的 demo，基于 CNode 社区提供的 API,以 react 组件化的开发思路，练习了基于 react 技术栈为主的前端单页面开发方式。
 
 ## 项目预览
-![](https://raw.githubusercontent.com/monster1935/vue-admin/master/public/cnode-react.png)
+![](https://raw.githubusercontent.com/monster1935/cnode-react-app/master/public/cnodejs-react.png)
 ## Demo
 
 [在线预览，戳我](https://monster1935.github.io/cnode-react-app/#/)
@@ -68,4 +68,4 @@ react 中 jsx 语法中给 html 绑定属性值，部分属性名称发生变化
 
 ## 写在最后
 
-感谢 [CNode](https://cnodejs.org/) 社区的提供的 api，一个有温度的社区。
+感谢 [CNode](https://cnodejs.org/) 社区的提供的 API，一个有温度的社区。
