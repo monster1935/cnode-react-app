@@ -13,13 +13,16 @@ const routeList = [
 ];
 
 const Header = () => (
-  <div className="header-wrapper">
-    <a className="brand">
+  <div className="header-wrapper navbar-inner">
+    <Link to="/" className="brand">
       <img
         src="//o4j806krb.qnssl.com/public/images/cnodejs_light.svg"
         alt="cnode"
       />
-    </a>
+    </Link>
+    <form id="search_form" className="navbar-search" action="http://www.baidu.com">
+        <input type="text" id="q" name="q" className="search-query span3" />
+    </form>
     <ul className="nav pull-right">
       {routeList.map(route => {
         return (

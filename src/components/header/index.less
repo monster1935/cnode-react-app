@@ -5,8 +5,10 @@
   min-width: 960px;
   margin: 0 auto;
   max-width: 1400px;
+  overflow: hidden;
   a.brand {
-    display: inline-block;
+    display: block;
+    float: left;
     width: 120px;
     padding: 3px 20px;
     height: 34px;
@@ -14,6 +16,9 @@
     color: #ccc;
     font-weight: 700;
     margin-left: -20px;
+    img {
+      vertical-align: initial;
+    }
   }
   .nav.pull-right {
     float: right;

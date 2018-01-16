@@ -12,14 +12,10 @@ class App extends Component {
     super(props);
     this.state = {};
   }
-  componentWillMount() {
-    console.log('compoent will mount');
-  }
-
   render() {
     return (
       <div className="App">
-        <div className="App-header">
+        <div className="App-header navbar">
           <Header />
         </div>
         <div className="App-content">
