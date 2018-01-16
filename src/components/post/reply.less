@@ -5,7 +5,9 @@
   border-top: 1px solid #f0f0f0;
   position: relative;
   font-size: 14px;
-
+  &.reply-highlight {
+    background-color: #f4fcf0;
+  }
   .author-content {
     .user-avatar {
       display: inline-block;
@@ -57,15 +59,16 @@
       }
       .iconfont {
         color: #000;
-        opacity: 0.6;
+        opacity: 0.4;
         cursor: pointer;
         &:hover {
-          opacity: 0.4;
+          opacity: 0.6;
         }
       }
 
       .up-count {
         color: gray;
+        margin-left: 6px;
       }
     }
 

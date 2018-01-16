@@ -11,6 +11,8 @@ class Post extends Component {
     this.state = {
       postId: '',
       postInfo: {},
+      highlight: [],
+
     };
   }
 
@@ -21,6 +23,7 @@ class Post extends Component {
       if (res.status === 200) {
         const postInfo = res.data.data;
         this.setState({ postInfo });
+        this.postSort();
       } else {
         console.error(res.statusText);
       }
@@ -29,7 +32,23 @@ class Post extends Component {
     });
   }
 
-  getPostInfo () {
+  postSort() {
+    const postCopy = this.state.postInfo.replies.slice();
+    postCopy.sort((a,b) => {
+      return b.ups.length - a.ups.length;
+    });
+    let highlight = [];
+    if (postCopy.length > 3) {
+      for (let i = 0; i < 3; i++) {
+        highlight.push(postCopy[i].id);
+      }
+    }
+    this.setState({
+      highlight
+    });
+  }
+
+  getPostInfo() {
     return axios.get(`https://cnodejs.org/api/v1/topic/${this.props.match.params.postId}`);
   }
 
@@ -81,11 +100,12 @@ class Post extends Component {
                 return (
                   <Reply
                     {...el}
+                    highlight={this.state.highlight}
                     key={el.id}
                     loginname={postInfo && postInfo.author.loginname}
                     index={index+1}
                   >
-                  </Reply>
+                </Reply>
                 );
               })
             }

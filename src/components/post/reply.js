@@ -6,16 +6,12 @@ import moment from 'moment';
 import './reply.less';
 
 class Reply extends Component {
-  componentWillMount() {
-    console.log(this.props);
-  }
-
   render () {
     return (
-      <div className="reply" id={this.props.id}>
+      <div className={`reply ${this.props.highlight.includes(this.props.id) ? 'reply-highlight' : ''}`} id={this.props.id}>
         <div className="author-content">
           <a className="user-avatar">
-            <img src={this.props.author.avatar_url} title={this.props.author.loginname} />
+            <img src={this.props.author.avatar_url} alt={this.props.author.loginname} />
           </a>
           <div className="user-info">
             <a className="reply-author">{this.props.author.loginname}</a>
