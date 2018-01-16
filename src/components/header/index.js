@@ -2,6 +2,7 @@
 // 头部导航栏组件
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './index.less';
 
 const routeList = [
   { path: '/', label: '首页' },

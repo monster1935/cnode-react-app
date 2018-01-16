@@ -4,6 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import { Link } from 'react-router-dom';
+import './index.less';
 
 class Home extends Component {
 

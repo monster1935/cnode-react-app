@@ -4,6 +4,7 @@ import axios from 'axios';
 import moment from 'moment';
 import Reply from './reply.js';
 import './index.less';
+import './post.less';
 
 class Post extends Component {
   constructor(props) {
